@@ -1,0 +1,4 @@
+Remove inactive AHKs
+Change .gitignore
+Check how to add global variables for vsCode path
+Add all variables to one script/file
