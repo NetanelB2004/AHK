@@ -5,7 +5,7 @@ showAllHotKeys() {
     #Persistent
 
     scriptDir := SCRIPT_DIR()
-    outputFile := "hotkeys list.txt"
+    outputFile := "txt files/hotkeys list.txt"
 
     regexKey := "^\s*([\^\!\+\#]?[^\:\s]+)::(.+)"
     regexString := "^\s*::([^:]+)::(.+)"

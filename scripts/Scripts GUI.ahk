@@ -115,7 +115,7 @@ AHK() {
 
 getAllHotKeys() {
     regexKey := "^\s*([\^\!\+\#]+[^\:\s]+)"
-    FileRead, fileContent, hotkeys list.txt
+    FileRead, fileContent, txt files/hotkeys list.txt
     strings := ""
 
     Loop, Parse, fileContent, `n, `r
