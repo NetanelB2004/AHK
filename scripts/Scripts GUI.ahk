@@ -13,7 +13,7 @@ openAHKWithVSCode() {
     scripts := getAllScripts() . "|" . NEW_FILE_CHOICE
 
     Gui, Destroy
-    Gui, New,,Open AHK script with VS_CODE
+    Gui, New,,Open AHK script with VSCode
     Gui, Font, s15
     Gui, Add, Text, Center, Select AHK file to open
     Gui, Add, DropDownList, w325 choose1 vAHK_CHOICE, %scripts%
@@ -93,11 +93,11 @@ sendHotKey() {
     AHKs := getAllHotKeys()
 
     Gui, Destroy
-    Gui, New,,Open AHK script with VS_CODE
+    Gui, New,,Run a hotkey
     Gui, Font, s15
     Gui, Add, Text, Center, Select AHK file to open
     Gui, Add, DropDownList, w325 choose1 vAHK_FUNCTION, %AHKs%
-    Gui, Add, Button, w150 gAHK +Default, Open
+    Gui, Add, Button, w150 gAHK +Default, Send Hotkey
     Gui, Add, Button, w150 x+25 , Cancel
 
     Gui, show
