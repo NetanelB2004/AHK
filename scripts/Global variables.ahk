@@ -11,7 +11,7 @@ PLAYLIST_PATH() {
 }
 
 VS_CODE_PATH() {
-    Return, "C:\Users\Netanel\AppData\Local\Programs\Microsoft VS Code\Code.exe"
+    Return, "C:\Users\" . A_UserName . "\AppData\Local\Programs\Microsoft VS Code\Code.exe"
 }
 
 SCREENSHOT_PATH() {
