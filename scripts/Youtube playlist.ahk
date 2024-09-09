@@ -4,7 +4,7 @@
 ^+u::playList()
 
 addToList() {
-	playlist := "youtube.txt"
+	playlist := PLAYLIST_PATH()
 	Send, ^l
 	Send, ^c
 	Send, {Esc}
@@ -55,7 +55,7 @@ cutURL(URL) {
 }
 
 playList() {
-	playlist := "youtube.txt"
+	playlist := PLAYLIST_PATH()
 	setURL := "http://www.youtube.com/watch_videos?video_ids="
 	songArray := []
 	Loop, read, %playlist%

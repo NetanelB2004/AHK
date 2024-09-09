@@ -4,8 +4,10 @@
 ::dwn::download
 ::syi::sudo yum -y install
 ::xx::exit
-;::^mn::{^}man{^}tldr
-;::^tl::{^}tldr{^}man
-::pkt::packet tracer
+::^mn::{^}man{^}tldr
+::^tl::{^}tldr{^}man
 ::sduo::sudo
 ::binbin::{#}{!}/bin/bash
+::vv::{U+2713}
+::qwe::NBj12704
+::tt::tldr

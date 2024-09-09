@@ -2,8 +2,8 @@
 ^!z::Run, ms-settings:
 ^!x::Run, explorer.exe
 ^!c::Run, cmd, c:\Users\%A_UserName%
-;^!v::Moba()
-^!l::luz()
+^!v::Moba()
+^!o::Oracle()
 !^+c::cmd()
 
 cmd() {
@@ -12,11 +12,10 @@ cmd() {
     send, {enter}
 }
 
-luz() {
-	Loop, Files, C:\Users\NetanelBoleg\Pictures\luz\*.png
-	Run, %A_LoopFileLongPath%
+Moba() {
+    Run, % MOBA_PATH()
 }
 
-;Moba() {
-;    Run, C:\ProgramData\Microsoft\Windows\Start Menu\Programs\MobaXterm\MobaXterm.lnk
-;}
+Oracle() {
+    Run, % ORACLE_PATH()
+}
