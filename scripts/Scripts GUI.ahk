@@ -1,7 +1,7 @@
 Global AHK_CHOICE
 Global NEW_FILE_CHOICE
 global VS_CODE
-Global AHK_FUCNTION
+Global AHK_FUNCTION
 
 #h::openAHKWithVSCode()
 #j::sendHotKey()
@@ -96,7 +96,7 @@ sendHotKey() {
     Gui, New,,Open AHK script with VS_CODE
     Gui, Font, s15
     Gui, Add, Text, Center, Select AHK file to open
-    Gui, Add, DropDownList, w325 choose1 vAHK_FUCNTION, %AHKs%
+    Gui, Add, DropDownList, w325 choose1 vAHK_FUNCTION, %AHKs%
     Gui, Add, Button, w150 gAHK +Default, Open
     Gui, Add, Button, w150 x+25 , Cancel
 
@@ -105,10 +105,10 @@ sendHotKey() {
    }
 
 AHK() {
-    Global AHK_FUCNTION
+    Global AHK_FUNCTION
 
     Gui, submit, Hide
-    hotKey := StrSplit(AHK_FUCNTION," -- ")[1]
+    hotKey := StrSplit(AHK_FUNCTION," -- ")[1]
     Send, %hotKey%
     return
 }   
