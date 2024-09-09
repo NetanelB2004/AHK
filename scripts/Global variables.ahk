@@ -7,7 +7,7 @@ ORACLE_PATH() {
 }
 
 PLAYLIST_PATH() {
-    Return, "youtube.txt"
+    Return, "txt files/youtube.txt"
 }
 
 VS_CODE_PATH() {

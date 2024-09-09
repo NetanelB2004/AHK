@@ -17,7 +17,7 @@ Moba() {
 }
 
 remoteConnect(option) {
-    outputFile := "remote access IPs.txt"
+    outputFile := "txt files/remote access IPs.txt"
     appTitleArray := ["Putty SSH", "Windows MSTSC", "Moba SSH"]
     appNameArray := ["putty -ssh", "mstsc -v", ""]
     matchNameArray := ["SSH", "MSTSC", "MOBA"]

@@ -15,7 +15,7 @@ selectFullLine() {
 
 
 showLinuxShortcuts() {
-    FileRead, fileContent, linux shortcuts.txt
+    FileRead, fileContent, txt files\linux shortcuts.txt
     lines := StrSplit(fileContent, "`n")
     Random, randomIndex, 1, lines.MaxIndex()
     selectedLine := lines[randomIndex]
