@@ -9,5 +9,4 @@
 ::sduo::sudo
 ::binbin::{#}{!}/bin/bash
 ::vv::{U+2713}
-::qwe::NBj12704
 ::tt::tldr
