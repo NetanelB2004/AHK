@@ -4,10 +4,30 @@
 ^+d::searchInGoogle("Google search")
 ^+f::searchInGoogle("Youtube search")
 ^+g::searchInGoogle("Google translate")
-^+c::openTab("chatGPT")
-^+v::openTab("Spotify")
-!^+d::openTab("Google docs")
-^+b::openTab("Whatsapp")
+^+c::searchForTab("chatGPT")
+^+v::searchForTab("Spotify")
+!^+d::searchForTab("Google docs")
+^+b::searchForTab("Whatsapp")
+
+searchForTab(prompt) {
+	;saveClipboard := Clipboard
+	SetTitleMatchMode, 2
+	WinActivate, - Google
+	Send, ^+a
+	Send, % prompt
+	Send, {Enter}
+	Send, {Esc}
+	sleep, 100
+	Send, ^l^c{Esc}
+	theURL := Clipboard
+	URL := getURL(prompt)
+	
+	if (!regexmatch(theURL, URL)) {
+		Run, %URL%
+	}
+
+	;Clipboard := saveClipboard
+}
 
 searchInGoogle(name) {
 	URL := getURL(name)
@@ -81,6 +101,7 @@ openTab(Name) {
 	Return
 }
 
+
 getURL(name) {
 	urlArray := [
 	, "https://chatgpt.com/"
@@ -93,7 +114,7 @@ getURL(name) {
 	, "https://www.google.com/search?q="	]
 
 	nameArray := [
-		, "chatGPT"
+		, "ChatGPT"
 		, "Spotify"
 		, "Google docs"
 		, "Whatsapp"
@@ -104,7 +125,7 @@ getURL(name) {
 
 	for index in nameArray
 		{
-			if (nameArray[index] == name)
+			if (RegExMatch(name, nameArray[index]) > 0)
 				{
 					break
 				}
