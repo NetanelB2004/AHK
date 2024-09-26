@@ -1,42 +1,33 @@
-;^+s::SearchPromptInGoogle("Google search")
-;^+h::SearchPromptInGoogle("Google images")
-^+s::SearchPromptInGoogle("Youtube search")
-^+d::searchInGoogle("Google search")
-^+f::searchInGoogle("Youtube search")
-^+g::searchInGoogle("Google translate")
-^+c::searchForTab("chatGPT")
-^+v::searchForTab("Spotify")
-!^+d::searchForTab("Google docs")
-^+b::searchForTab("Whatsapp")
+;^+s::SearchPrompt("Google")
+;^+h::SearchPrompt("Google images")
+^+s::SearchPrompt("Youtube")
+^+d::searchGoogle("Google")
+^+f::searchGoogle("Youtube")
+^+g::searchGoogle("Google translate")
+^+c::openTab("ChatGPT")
+^+v::openTab("Spotify")
+!^+d::openTab("Google docs")
+^+b::openTab("Whatsapp")
 
-searchForTab(prompt) {
-	;saveClipboard := Clipboard
+openTab(prompt) {
+	Send, {Esc}
 	SetTitleMatchMode, 2
 	WinActivate, - Google
 	Send, ^+a
+	sleep, 200
 	Send, % prompt
 	Send, {Enter}
 	Send, {Esc}
-	sleep, 100
-	Send, ^l^c{Esc}
-	theURL := Clipboard
-	URL := getURL(prompt)
-	
-	if (!regexmatch(theURL, URL)) {
-		Run, %URL%
-	}
-
-	;Clipboard := saveClipboard
 }
 
-searchInGoogle(name) {
+searchGoogle(name) {
 	URL := getURL(name)
 	Send, ^c
 	Sleep, 10
 	Run, %URL%%clipboard%
 }
 
-SearchPromptInGoogle(prompt) {
+SearchPrompt(prompt) {
 	URL := getURL(prompt)
 	InputBox, userInput, Search %prompt%, enter prompt, , 250, 125
 	if (ErrorLevel) {
@@ -55,53 +46,6 @@ SearchPromptInGoogle(prompt) {
 	Run, %URL%%input%
 }
 
-openTab(Name) {
-	saveClipBoard := Clipboard
-	URLToSend := getURL(Name)
-	SetTitleMatchMode, 2
-	WinActivate, - Google
-	SetTitleMatchMode, 1
-	If WinExist(Title)
-	    WinActivate
-	else {
-		WinGetActiveTitle, StartingTitle
-		Send, ^l^c
-		ClipWait
-		Send, {Esc}
-		url := Clipboard
-		if InStr(url, Name) { ;|| RegExMatch(StartingTitle, Name)) {
-			return
-		}
-		startURL := url
-		url := ""
-
-		while (startURL != url)
-		{
-			send, ^{tab}
-			WinGetActiveTitle, CurrentTabTitle
-			sleep, 100
-			Send, ^l
-			Send, ^c
-			ClipWait
-			Send, {Esc}
-			
-			url := Clipboard
-			
-			if InStr(url, Name) { ;|| RegExMatch(CurrentTabTitle, Name)) {
-				return
-			}
-
-			;if (CurrentTabTitle != StartingTitle) {
-			;	break
-			;}
-		}
-	    Run, %URLToSend%
-	}
-	Clipboard := saveClipBoard
-	Return
-}
-
-
 getURL(name) {
 	urlArray := [
 	, "https://chatgpt.com/"
@@ -118,14 +62,14 @@ getURL(name) {
 		, "Spotify"
 		, "Google docs"
 		, "Whatsapp"
-		, "Google search"	
-		, "Youtube search"
+		, "Google"
+		, "Youtube"
 		, "Google translate"
 		, "Google images"	]
 
 	for index in nameArray
 		{
-			if (RegExMatch(name, nameArray[index]) > 0)
+			if (nameArray[index] == name)
 				{
 					break
 				}
@@ -133,3 +77,49 @@ getURL(name) {
 
 	return urlArray[index]
 }
+
+;openTab(Name) {
+; 	saveClipBoard := Clipboard
+; 	URLToSend := getURL(Name)
+; 	SetTitleMatchMode, 2
+; 	WinActivate, - Google
+; 	SetTitleMatchMode, 1
+; 	If WinExist(Title)
+; 	    WinActivate
+; 	else {
+; 		WinGetActiveTitle, StartingTitle
+; 		Send, ^l^c
+; 		ClipWait
+; 		Send, {Esc}
+; 		url := Clipboard
+; 		if InStr(url, Name) { ;|| RegExMatch(StartingTitle, Name)) {
+; 			return
+; 		}
+; 		startURL := url
+; 		url := ""
+
+; 		while (startURL != url)
+; 		{
+; 			send, ^{tab}
+; 			WinGetActiveTitle, CurrentTabTitle
+; 			sleep, 100
+; 			Send, ^l
+; 			Send, ^c
+; 			ClipWait
+; 			Send, {Esc}
+			
+; 			url := Clipboard
+			
+; 			if InStr(url, Name) { ;|| RegExMatch(CurrentTabTitle, Name)) {
+; 				return
+; 			}
+
+; 			;if (CurrentTabTitle != StartingTitle) {
+; 			;	break
+; 			;}
+; 		}
+; 	    Run, %URLToSend%
+; 	}
+; 	Clipboard := saveClipBoard
+; 	Return
+; }
