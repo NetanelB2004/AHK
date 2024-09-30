@@ -1,17 +1,19 @@
+;Linux hotstings
 ::lx::linux
-::vag::vagrant
 ::syi::sudo yum install -y
-::xx::exit
 ::^mn::{^}man{^}tldr
 ::^tl::{^}tldr{^}man
 ::sduo::sudo
-::vv::{U+2713}
 ::tt::tldr
-::qwe::iamverygay
-::nnn::Netanel
+::xx::exit
 ::ans::ansible
-
+;Git hotstings
 ::gtt::git status
 ::gdd::git add
 ::gmm::git commit -m ""{left}
 ::gpsh::git push
+;Other hotstings
+::vag::vagrant
+::vv::{U+2713}
+::qwe::iamverygay
+::nnn::Netanel
