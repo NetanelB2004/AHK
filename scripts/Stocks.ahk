@@ -6,6 +6,7 @@ ShowStocks() {
 
     message := "
     (
+    Invensted on 9/9/2024
     Mu - 4 shares at $87
     Costco - 1 share at $881
     Berkshire Hathaway - 2 shares at $447
