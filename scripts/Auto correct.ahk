@@ -7,6 +7,7 @@
 ::tt::tldr
 ::xx::exit
 ::ans::ansible
+::ssdd::sudo {!}{!}
 ;Git hotstings
 ::gtt::git status
 ::gdd::git add
@@ -16,4 +17,7 @@
 ::vag::vagrant
 ::vv::{U+2713}
 ::qwe::iamverygay
+::asd::devops
 ::nnn::Netanel
+::auto::automation
+
