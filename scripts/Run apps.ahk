@@ -4,7 +4,7 @@
 ^!c::Run, cmd, c:\Users\%A_UserName%
 ^!v::Moba()
 ^!o::Oracle()
-!^+c::cmd()
+;!^+c::cmd()
 
 cmd() {
     send, ^l
