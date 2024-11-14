@@ -1,5 +1,3 @@
-;^+s::SearchPrompt("Google")
-;^+h::SearchPrompt("Google images")
 ^+s::SearchPrompt("Youtube")
 ^+d::searchGoogle("Google")
 ^+f::searchGoogle("Youtube")
@@ -77,49 +75,3 @@ getURL(name) {
 
 	return urlArray[index]
 }
-
-;openTab(Name) {
-; 	saveClipBoard := Clipboard
-; 	URLToSend := getURL(Name)
-; 	SetTitleMatchMode, 2
-; 	WinActivate, - Google
-; 	SetTitleMatchMode, 1
-; 	If WinExist(Title)
-; 	    WinActivate
-; 	else {
-; 		WinGetActiveTitle, StartingTitle
-; 		Send, ^l^c
-; 		ClipWait
-; 		Send, {Esc}
-; 		url := Clipboard
-; 		if InStr(url, Name) { ;|| RegExMatch(StartingTitle, Name)) {
-; 			return
-; 		}
-; 		startURL := url
-; 		url := ""
-
-; 		while (startURL != url)
-; 		{
-; 			send, ^{tab}
-; 			WinGetActiveTitle, CurrentTabTitle
-; 			sleep, 100
-; 			Send, ^l
-; 			Send, ^c
-; 			ClipWait
-; 			Send, {Esc}
-			
-; 			url := Clipboard
-			
-; 			if InStr(url, Name) { ;|| RegExMatch(CurrentTabTitle, Name)) {
-; 				return
-; 			}
-
-; 			;if (CurrentTabTitle != StartingTitle) {
-; 			;	break
-; 			;}
-; 		}
-; 	    Run, %URLToSend%
-; 	}
-; 	Clipboard := saveClipBoard
-; 	Return
-; }
