@@ -14,6 +14,7 @@
 ::gdd::git add
 ::gmm::git commit -m ""{left}
 ::gpsh::git push
+::gsw::git switch
 ;Other hotstings
 ::vag::vagrant
 ::vv::{U+2713}
