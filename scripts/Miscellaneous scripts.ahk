@@ -1,10 +1,9 @@
 ;#s::Screenshot()
 ^!b::selectFullLine()
 !^+s::supersave()
-!^+c::supercopy()
 #s::showLinuxShortcuts()
 ^v::Send +{Insert}
-;^g::translate()
+
 Screenshot() {
     send, #{PrintScreen}
     Run, % SCREENSHOT_PATH()
@@ -13,7 +12,6 @@ Screenshot() {
 selectFullLine() {
     Send {Home}{Shift down}{End}{Shift up}
 }
-
 
 showLinuxShortcuts() {
     FileRead, fileContent, txt files\linux shortcuts.txt
@@ -27,11 +25,4 @@ supersave() {
     send, ^s
     Run, "Run all.ahk"
     Run, "Master.ahk"
-}
-
-supercopy() {
-    Send, ^c
-    ClipWait
-    text := Clipboard
-    clipboard := text
 }
