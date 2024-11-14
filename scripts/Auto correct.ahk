@@ -17,7 +17,6 @@
 ::vag::vagrant
 ::vv::{U+2713}
 ::qwe::iamverygay
-::asd::devops
 ::nnn::Netanel
 ::auto::automation
-
+::aa::ARP
