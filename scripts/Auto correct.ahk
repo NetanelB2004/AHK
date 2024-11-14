@@ -7,7 +7,7 @@
 ::tt::tldr
 ::xx::exit
 ::ans::ansible
-::ipa:: ip --br a
+::ipa::ip --br a
 ::ssdd::sudo {!}{!}
 ;Git hotstings
 ::gtt::git status
