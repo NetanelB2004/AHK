@@ -78,48 +78,8 @@ getURL(name) {
 	return urlArray[index]
 }
 
-;openTab(Name) {
-; 	saveClipBoard := Clipboard
-; 	URLToSend := getURL(Name)
-; 	SetTitleMatchMode, 2
-; 	WinActivate, - Google
-; 	SetTitleMatchMode, 1
-; 	If WinExist(Title)
-; 	    WinActivate
-; 	else {
-; 		WinGetActiveTitle, StartingTitle
-; 		Send, ^l^c
-; 		ClipWait
-; 		Send, {Esc}
-; 		url := Clipboard
-; 		if InStr(url, Name) { ;|| RegExMatch(StartingTitle, Name)) {
-; 			return
-; 		}
-; 		startURL := url
-; 		url := ""
-
-; 		while (startURL != url)
-; 		{
-; 			send, ^{tab}
-; 			WinGetActiveTitle, CurrentTabTitle
-; 			sleep, 100
-; 			Send, ^l
-; 			Send, ^c
-; 			ClipWait
-; 			Send, {Esc}
-			
-; 			url := Clipboard
-			
-; 			if InStr(url, Name) { ;|| RegExMatch(CurrentTabTitle, Name)) {
-; 				return
-; 			}
-
-; 			;if (CurrentTabTitle != StartingTitle) {
-; 			;	break
-; 			;}
-; 		}
-; 	    Run, %URLToSend%
-; 	}
-; 	Clipboard := saveClipBoard
-; 	Return
-; }
+sendKeyNTimes(times, key1, key2) {
+    loop, % times {
+        Send, % key1 key2
+    }
+}
