@@ -9,6 +9,7 @@ PLAYLIST_PATH() {
 }
 
 VS_CODE_PATH() {
+    Return, "c:\Users\Netanel Bollag\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Visual Studio Code\Visual Studio Code.lnk"
 }
 
 SCREENSHOT_PATH() {
