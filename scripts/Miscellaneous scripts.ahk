@@ -1,19 +1,19 @@
-;#s::Screenshot()
 ^!b::selectFullLine()
+^!j::SwitchPlaces()
 !^+s::supersave()
-!^+c::supercopy()
 #s::showLinuxShortcuts()
 ^v::Send +{Insert}
-;^g::translate()
 Screenshot() {
     send, #{PrintScreen}
     Run, % SCREENSHOT_PATH()
 }
+;!^+c::supercopy()
+;#s::Screenshot()
+;^g::translate()
 
 selectFullLine() {
     Send {Home}{Shift down}{End}{Shift up}
 }
-
 
 showLinuxShortcuts() {
     FileRead, fileContent, txt files\linux shortcuts.txt
@@ -34,4 +34,27 @@ supercopy() {
     ClipWait
     text := Clipboard
     clipboard := text
+}
+
+ SwitchPlaces() {
+    sendKeyNTimes(3, "^", "c")
+    Text := Clipboard
+    message := "Enter character to switch by"
+    InputBox, userInput, %message%, %Text%, show, 250, 125
+
+    if (userInput = "") {
+        Return
+    }
+    
+    StringSplit, Part, Text, %userInput%
+    Part1 := Trim(Part1)
+    Part2 := Trim(Part2)
+    Switched := Part2 . userInput . " " . Part1
+    Send, %Switched%
+ }
+
+ sendKeyNTimes(times, key1, key2) {
+    loop, % times {
+        Send, % key1 key2
+    }
 }
