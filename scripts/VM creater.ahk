@@ -86,7 +86,7 @@ mobax() {
 
     vagrantCall := "`t(1.." VmNumber ").each do |i|`n`tconfig.vm.define """ vmName "#{i}"" do |vm_config|`n" . "`t`tconfigure_vm(vm_config, vm_name: """ vmName "#{i}"", ssh_port: ""#{" VmSSHPort " -1 + i}"""
     if (IPAddress != DEFAULT_IP_NETWORK) {
-        vagrantCall .= ", ip: """ IPAddress . ".#{i}"""
+        vagrantCall .= ", ip: """ IPAddress . ".#{i + 1}"""
     }
 
     if (DistroChoice != DEFAULT_DISTRIBUTION) {
