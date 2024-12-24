@@ -7,8 +7,10 @@
 ::tt::tldr
 ::xx::exit
 ::ans::ansible
-::ipa::ip --br a
+::ipa::ip -br a
 ::ssdd::sudo {!}{!}
+::susu::sudo su -
+::sysre::systemctl restart
 ;Git hotstings
 ::gtt::git status
 ::gdd::git add
@@ -22,3 +24,4 @@
 ::nnn::Netanel
 ::auto::automation
 ::sum::summarize
+::lh::localhost
