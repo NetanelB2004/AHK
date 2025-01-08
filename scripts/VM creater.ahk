@@ -26,7 +26,7 @@ mobax() {
         Return
     }
     
-    MsgBox, 260,, %IP_NETWORK_ASK%
+    MsgBox, 4,, %IP_NETWORK_ASK%
     IfMsgBox, yes
         IPAddress := getInput(VM_IP_NETWORK_PROMPT)
     ;---- Get Linux distribution ----
@@ -67,7 +67,7 @@ mobax() {
         {
             currentVM := vmName . A_Index
             sshPort := VmSSHPort + A_Index - 1
-            sessionEntry := currentVM "=#109#0%localhost%" sshPort "%vagrant%%-1%-1%%%%%0%0%0%_ProfileDir_\.vagrant\machines\" currentVM "\virtualbox\private_key"
+            sessionEntry := currentVM "=#109#0%localhost%" sshPort "%vagrant%%-1%-1%%%%%0%0%0%_ProfileDir_\.vagrant\machines\" currentVM "\virtualbox\private_key%%-1%-1%0%0%%1080%%0%-1%2"
             FileAppend, %sessionEntry%`n, %MXTSESSONS_PATH%
         }
 
