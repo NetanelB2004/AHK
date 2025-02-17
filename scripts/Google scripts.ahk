@@ -1,4 +1,4 @@
-^+s::SearchPrompt("Youtube")
+^+s::SearchPrompt("Google images")
 ^+d::searchGoogle("Google")
 ^+f::searchGoogle("Youtube")
 ^+g::searchGoogle("Google translate")
@@ -31,18 +31,14 @@ searchGoogle(name) {
 SearchPrompt(prompt) {
 	URL := getURL(prompt)
 	InputBox, userInput, Search %prompt%, enter prompt, , 250, 125
-	if (ErrorLevel) {
-		return
-	}
 
 	input := Trim(userInput, " ")
-	if (StrLen(input) == 0) {
+	if (StrLen(input) == 0 or ErrorLevel) {
 		return
 	}
 	
 	if (prompt == "Google images") {
-		Run, %URL%%input%&udm=2
-		Return
+		input .= "&udm=2"
 	}
 	Run, %URL%%input%
 }
