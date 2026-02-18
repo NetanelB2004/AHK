@@ -9,7 +9,7 @@
 ^+b::openTab("Whatsapp")
 ^.::sendKeyNTimes(4, "+", ">")
 ^,::sendKeyNTimes(4, "+", "<")
-
+#f::SendInput, thisisunsafe
 openTab(prompt) {
 	Send, {Esc}
 	SetTitleMatchMode, 2
